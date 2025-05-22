@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tellurion - Empowering Innovation</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://thumbs2.imgbox.com/ed/2a/kEoa813g_t.jpg">
+    <meta name="description" content="Tellurion - Empowering the future with innovative solutions.">
+<style>
+    :root {
+        --main-bg: #f5f5f5;
+        --header-bg: #2c3e50;
+        --footer-bg: #2c3e50;
+        --card-bg: #fff;
+        --card-shadow: 0 4px 16px rgba(44, 62, 80, 0.11);
+        --card-border: #ddd;
+        --section-h: #2c3e50;
+        --section-p: #7f8c8d;
+        --btn-bg: #2c3e50;
+        --btn-bg-hover: #34495e;
+        --btn-color: #fff;
+        --footer-color: #ecf0f1;
+        --footer-link: #7ed9fc;
+    }
+    body {
+        background: var(--main-bg);
+        color: #333;
+        line-height: 1.6;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        transition: background 0.3s, color 0.3s;
+    }
+    .header {
+        background: var(--header-bg);
+        color: #fff;
+        text-align: center;
+        padding: 30px 20px 25px 20px;
+        position: relative;
+    }
+    .logo-area {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+    .logo-link {
+        width: 200px;
+        height: 200px;
+        display: inline-block;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 8px 32px rgba(44, 62, 80, 0.20);
+        transition: box-shadow 0.3s, transform 0.2s;
+    }
+    .logo-link img {
+        width: 200px;
+        height: 200px;
+        border-radius: 20px;
+        object-fit: cover;
+        display: block;
+        border: none;
+    }
+    .logo-link:hover, .logo-link:focus {
+        box-shadow: 0 12px 32px rgba(44, 62, 80, 0.25);
+        transform: scale(1.05);
+    }
+    .mode-toggle {
+        position: absolute;
+        top: 22px;
+        right: 22px;
+        cursor: pointer;
+        background: transparent;
+        color: #ffe066;
+        border: none;
+        padding: 7px;
+        border-radius: 50%;
+        font-size: 28px;
+        line-height: 1;
+        width: 42px;
+        height: 42px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.3s, color 0.3s;
+        z-index: 10;
+    }
+    .mode-toggle:hover,
+    .mode-toggle:focus {
+        background: rgba(44,62,80,0.10);
+    }
+    .mode-toggle .moon,
+    .mode-toggle .sun {
+        pointer-events: none;
+    }
+    .mode-toggle .sun { display: none; }
+    body.dark .mode-toggle { color: #7ed9fc; }
+    body.dark .mode-toggle .moon { display: none; }
+    body.dark .mode-toggle .sun { display: inline; }
+    body:not(.dark) .mode-toggle .moon { display: inline; }
+    body:not(.dark) .mode-toggle .sun { display: none; }
+    h1 {
+        font-size: 48px;
+        font-weight: 700;
+        margin: 15px 0 10px 0;
+        color: #fff;
+    }
+    p.lead {
+        font-size: 20px;
+        max-width: 800px;
+        margin: 0 auto 20px;
+        color: #ecf0f1;
+    }
+    /* Card Sections */
+    .sections {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 60px 20px 30px 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+    }
+    .section {
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        border-radius: 10px;
+        padding: 30px 20px 28px 20px;
+        width: 350px;
+        text-align: center;
+        box-shadow: var(--card-shadow);
+        transition: transform 0.3s, box-shadow 0.3s, background 0.3s, color 0.3s;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .section:hover {
+        transform: translateY(-5px) scale(1.03);
+        box-shadow: 0 12px 32px rgba(44, 62, 80, 0.13);
+    }
+    .section .section-img-container {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 15px;
+        background: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .section img,
+    .section svg {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        border-radius: 16px;
+        background: transparent;
+        box-shadow: 0 1px 8px rgba(44,62,80,0.10);
+        padding: 0;
+        display: block;
+    }
+    .section h2 {
+        font-size: 24px;
+        color: var(--section-h);
+        margin-bottom: 10px;
+        font-weight: 700;
+        transition: color 0.3s;
+    }
+    .section p {
+        font-size: 15px;
+        color: var(--section-p);
+        margin-bottom: 15px;
+        transition: color 0.3s;
+    }
+    .section a {
+        display: inline-block;
+        padding: 10px 22px;
+        background: var(--btn-bg);
+        color: var(--btn-color);
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: 600;
+        transition: background 0.3s, transform 0.2s;
+        font-size: 15px;
+    }
+    .section a:hover {
+        background: var(--btn-bg-hover);
+        transform: scale(1.05);
+    }
+    /* Footer */
+    footer {
+        margin-top: auto;
+        background: var(--footer-bg);
+        color: var(--footer-color);
+        text-align: center;
+        padding: 22px 10px 16px 10px;
+        font-size: 16px;
+        letter-spacing: 0.2px;
+    }
+    footer a {
+        color: var(--footer-link);
+        text-decoration: none;
+        font-weight: 600;
+    }
+    footer a:hover {
+        text-decoration: underline;
+    }
+    .footer-socials {
+        margin-top: 8px;
+    }
+    .footer-socials a {
+        display: inline-block;
+        margin: 0 6px;
+        vertical-align: middle;
+        opacity: 0.85;
+    }
+    .footer-socials a:hover {
+        opacity: 1;
+    }
+    .footer-socials svg {
+        width: 22px;
+        height: 22px;
+        fill: var(--footer-link);
+        vertical-align: middle;
+    }
+    /* Dark mode - background is black, cards navy, text white */
+    body.dark {
+        --main-bg: #000;
+    }
+    body.dark .section {
+        background: #18202b;
+        color: #fff;
+    }
+    body.dark .section h2,
+    body.dark .section p {
+        color: #fff;
+    }
+    body.dark .section a {
+        background: #233450;
+        color: #fff;
+    }
+    body.dark .section a:hover {
+        background: #345071;
+    }
+    @media (max-width: 900px) {
+        .sections {
+            gap: 18px;
+        }
+        .section {
+            width: 90vw;
+            max-width: 420px;
+        }
+    }
+    @media (max-width: 768px) {
+        h1 { font-size: 32px; }
+        p.lead { font-size: 16px; }
+        .section { width: 100%; }
+        .sections { padding: 36px 5vw 24px 5vw; }
+        footer { font-size: 15px; }
+        .mode-toggle { top: 14px; right: 10px; }
+        .logo-link, .logo-link img { width: 160px; height: 160px; }
+    }
+    @media (max-width: 480px) {
+        .logo-link, .logo-link img { width: 120px; height: 120px; }
+        .section .section-img-container { width: 80px; height: 80px; }
+    }
+</style>
+</head>
+<body>
+    <header class="header">
+        <button class="mode-toggle" id="modeToggle" aria-label="Toggle light or dark mode">
+            <span class="moon">🌙</span>
+            <span class="sun">☀️</span>
+        </button>
+        <div class="logo-area">
+            <!-- Clickable, not flipping, links to your site -->
+            <a class="logo-link" href="https://temp-mail.org/en/" target="_blank" title="Visit Tellurion">
+                <img src="https://thumbs2.imgbox.com/f6/41/349HpV98_t.png" alt="Tellurion Logo" draggable="false">
+            </a>
+        </div>
+        <h1>Tellurion</h1>
+        <p class="lead">Empowering the future with innovative solutions.</p>
+    </header>
+    <main>
+        <div class="sections">
+            <div class="section">
+                <div class="section-img-container">
+                  <img src="https://thumbs2.imgbox.com/88/5a/wAXR5P1p_t.jpg" alt="Eduzentra Logo" />
+                </div>
+                <h2>Eduzentra</h2>
+                <p>Enhance education with smart tools and university resources.</p>
+                <a href="https://codewiz235.github.io/Edu/">Learn More</a>
+            </div>
+            <div class="section">
+                <div class="section-img-container">
+                  <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="10" y="10" width="80" height="80" rx="20" fill="#2c3e50"/>
+                      <circle cx="50" cy="50" r="25" fill="#7ed9fc"/>
+                  </svg>
+                </div>
+                <h2>Gadgets</h2>
+                <p>Explore cutting-edge hardware solutions.</p>
+                <a href="#" aria-disabled="true" style="pointer-events:none;opacity:0.5;">Preview</a>
+            </div>
+            <div class="section">
+                <div class="section-img-container">
+                  <img src="https://thumbs2.imgbox.com/da/39/PN14Vp1E_t.png" alt="Socials Logo" />
+                </div>
+                <h2>Socials</h2>
+                <p>Connect with the next generation of platforms.</p>
+                <a href="netlify-socials.html">Preview</a>
+            </div>
+        </div>
+    </main>
+    <footer>
+        Contact: <a href="mailto:yigam74495@dlbazi.com">Tellurion@co.za</a> &copy; 2025 Tellurion
+        <div class="footer-socials">
+            <a href="https://github.com/codewiz235" target="_blank" aria-label="GitHub">
+                <svg viewBox="0 0 24 24"><path d="M12 0.297c-6.626 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387 0.6 0.113 0.82-0.26 0.82-0.577 0-0.285-0.011-1.04-0.017-2.042-3.338 0.726-4.042-1.613-4.042-1.613-0.546-1.387-1.333-1.756-1.333-1.756-1.089-0.745 0.084-0.729 0.084-0.729 1.205 0.084 1.84 1.237 1.84 1.237 1.07 1.834 2.809 1.304 3.495 0.997 0.108-0.775 0.418-1.304 0.76-1.604-2.665-0.304-5.466-1.332-5.466-5.932 0-1.311 0.469-2.381 1.236-3.221-0.124-0.303-0.536-1.527 0.117-3.176 0 0 1.008-0.323 3.301 1.23 0.957-0.266 1.984-0.399 3.003-0.404 1.019 0.005 2.047 0.138 3.006 0.404 2.289-1.554 3.295-1.23 3.295-1.23 0.655 1.649 0.243 2.873 0.119 3.176 0.77 0.84 1.235 1.91 1.235 3.221 0 4.61-2.807 5.625-5.479 5.921 0.43 0.372 0.814 1.104 0.814 2.225 0 1.604-0.015 2.896-0.015 3.289 0 0.32 0.216 0.694 0.825 0.576 4.765-1.588 8.2-6.084 8.2-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+            </a>
+        </div>
+    </footer>
+    <script>
+        // Light/Dark mode toggle logic
+        const modeToggle = document.getElementById('modeToggle');
+        function setMode(mode) {
+            if(mode === 'dark') {
+                document.body.classList.add('dark');
+            } else {
+                document.body.classList.remove('dark');
+            }
+        }
+        // Get mode from localStorage or system preference
+        const savedMode = localStorage.getItem('tellurion-mode');
+        const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        setMode(savedMode ? savedMode : (systemDark ? 'dark' : 'light'));
+        modeToggle.addEventListener('click', function() {
+            const mode = document.body.classList.contains('dark') ? 'light' : 'dark';
+            setMode(mode);
+            localStorage.setItem('tellurion-mode', mode);
+        });
+    </script>
+</body>
+</html>
