@@ -1,40 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tellurion - Empowering Innovation</title>
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="https://thumbs2.imgbox.com/ed/2a/kEoa813g_t.jpg">
-    <meta name="description" content="Tellurion - Empowering the future with innovative solutions.">
-<style>
-    :root {
-        --main-bg: #f5f5f5;
-        --header-bg: #2c3e50;
-        --footer-bg: #2c3e50;
-        --card-bg: #fff;
-        --card-shadow: 0 4px 16px rgba(44, 62, 80, 0.11);
-        --card-border: #ddd;
-        --section-h: #2c3e50;
-        --section-p: #7f8c8d;
-        --btn-bg: #2c3e50;
-        --btn-bg-hover: #34495e;
-        --btn-color: #fff;
-        --footer-color: #ecf0f1;
-        --footer-link: #7ed9fc;
-    }
-    body {
-        background: var(--main-bg);
-        color: #333;
-        line-height: 1.6;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        transition: background 0.3s, color 0.3s;
-    }
-    .header {
-        background: var(--header-bg);
-        color: #fff;
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Home — My Applications Tracker</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="home.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="home">
+  <header class="topbar">
+    <a href="home.html" id="home-link" title="Home" class="logo-wrap">
+      <img id="company-logo" src="uwc.jpeg" alt="Company logo">
+    </a>
+
+    <h1 class="app-title">My Applications</h1>
+
+    <nav class="top-actions">
+      <button id="about-btn" title="About us" class="icon-btn about-icon">
+        <img src="https://img.icons8.com/?size=100&id=bjqhmlJOaXIK&format=png&color=000000" alt="About">
+      </button>
+    </nav>
+  </header>
+
+  <main class="home-main">
+    <section class="cards-grid" id="apps-grid" aria-label="Application areas">
+      <!-- Universities card -->
+      <article class="app-card" data-target="index.html" id="card-universities" tabindex="0" role="button" aria-pressed="false">
+        <div class="card-header">
+          <div class="card-accent"></div>
+          <div class="card-top" style="background:linear-gradient(135deg,#1e40af,#3b82f6);">
+            <div class="logo-circle">
+              <img class="card-logo" src="https://img.icons8.com/?size=150&id=86527&format=png&color=ffffff" alt="Universities logo">
+            </div>
+            <div class="card-title">
+              <h3>Universities</h3>
+              <p class="card-desc">Manage your university applications</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <div class="status-row" aria-hidden="false">
+            <div class="status-item" data-status="admitted">
+              <div class="status-label">Admitted</div>
+              <div class="battery" id="uni-admitted-battery" aria-hidden="true"></div>
+              <div class="count" id="uni-admitted-count" aria-live="polite">0</div>
+            </div>
+
+            <div class="status-item" data-status="pending">
+              <div class="status-label">Pending</div>
+              <div class="battery" id="uni-pending-battery" aria-hidden="true"></div>
+              <div class="count" id="uni-pending-count" aria-live="polite">0</div>
+            </div>
+
+            <div class="status-item" data-status="conditional">
+              <div class="status-label">Conditional</div>
+              <div class="battery" id="uni-conditional-battery" aria-hidden="true"></div>
+              <div class="count" id="uni-conditional-count" aria-live="polite">0</div>
+            </div>
+
+            <div class="status-item" data-status="rejected">
+              <div class="status-label">Rejected</div>
+              <div class="battery" id="uni-rejected-battery" aria-hidden="true"></div>
+              <div class="count" id="uni-rejected-count" aria-live="polite">0</div>
+            </div>
+          </div>
+
+          <div class="card-actions">
+            <a class="card-link" href="index.html" aria-label="Open Universities">Open</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Bursaries card -->
+      <article class="app-card" data-target="bursaries.html" id="card-bursaries" tabindex="0" role="button" aria-pressed="false">
+        <div class="card-header">
+          <div class="card-accent"></div>
+          <div class="card-top" style="background:linear-gradient(135deg,#0f766e,#06b6d4);">
+            <div class="logo-circle">
+              <img class="card-logo" src="https://img.icons8.com/?size=150&id=13785&format=png&color=ffffff" alt="Bursaries logo">
+            </div>
+            <div class="card-title">
+              <h3>Bursaries</h3>
+              <p class="card-desc">Track bursary applications and awards</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <div class="status-row">
+            <div class="status-item" data-status="awarded">
+              <div class="status-label">Awarded</div>
+              <div class="battery" id="burs-awarded-battery"></div>
+              <div class="count" id="burs-awarded-count">0</div>
+            </div>
+            <div class="status-item" data-status="pending">
+              <div class="status-label">Pending</div>
+              <div class="battery" id="burs-pending-battery"></div>
+              <div class="count" id="burs-pending-count">0</div>
+            </div>
+            <div class="status-item" data-status="declined">
+              <div class="status-label">Declined</div>
+              <div class="battery" id="burs-declined-battery"></div>
+              <div class="count" id="burs-declined-count">0</div>
+            </div>
+          </div>
+
+          <div class="card-actions">
+            <a class="card-link" href="bursaries.html" aria-label="Open Bursaries">Open</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Residence card -->
+      <article class="app-card" data-target="residence.html" id="card-residence" tabindex="0" role="button" aria-pressed="false">
+        <div class="card-header">
+          <div class="card-accent"></div>
+          <div class="card-top" style="background:linear-gradient(135deg,#7c3aed,#c084fc);">
+            <div class="logo-circle">
+              <img class="card-logo" src="https://img.icons8.com/?size=150&id=129961&format=png&color=ffffff" alt="Residence logo">
+            </div>
+            <div class="card-title">
+              <h3>Residence</h3>
+              <p class="card-desc">Manage residence applications and offers</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <div class="status-row">
+            <div class="status-item" data-status="offered">
+              <div class="status-label">Offered</div>
+              <div class="battery" id="res-offered-battery"></div>
+              <div class="count" id="res-offered-count">0</div>
+            </div>
+            <div class="status-item" data-status="pending">
+              <div class="status-label">Pending</div>
+              <div class="battery" id="res-pending-battery"></div>
+              <div class="count" id="res-pending-count">0</div>
+            </div>
+            <div class="status-item" data-status="waitlisted">
+              <div class="status-label">Waitlisted</div>
+              <div class="battery" id="res-waitlisted-battery"></div>
+              <div class="count" id="res-waitlisted-count">0</div>
+            </div>
+          </div>
+
+          <div class="card-actions">
+            <a class="card-link" href="residence.html" aria-label="Open Residence">Open</a>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-contact">
+      <p>
+        <img src="https://img.icons8.com/?size=50&id=82763&format=png&color=000000" alt="Email Icon" class="contact-icon">
+        <a href="mailto:contact@myapp.com">contact@myapp.com</a>
+      </p>
+      <p>
+        <img src="https://img.icons8.com/?size=50&id=9518&format=png&color=000000" alt="Phone Icon" class="contact-icon">
+        <a href="tel:+1234567890">+1 234 567 890</a>
+      </p>
+    </div>
+
+    <div class="social-icons">
+      <a href="https://www.instagram.com/" target="_blank" rel="noopener">
+        <img src="https://img.icons8.com/?size=100&id=62855&format=png&color=008000" alt="Instagram">
+      </a>
+      <a href="https://twitter.com/" target="_blank" rel="noopener">
+        <img src="https://img.icons8.com/?size=100&id=37326&format=png&color=FF0000" alt="Twitter">
+      </a>
+      <a href="https://www.linkedin.com/" target="_blank" rel="noopener">
+        <img src="https://img.icons8.com/?size=100&id=118467&format=png&color=0000FF" alt="LinkedIn">
+      </a>
+    </div>
+
+    <p class="copyright">&copy; 2025 My Applications Tracker. All rights reserved.</p>
+  </footer>
+
+  <div id="about-modal" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <h2>About Us</h2>
+      <p style="color:#ccc; line-height:1.6;">
+        My Applications Tracker helps you manage university, bursary, and residence applications in one place.
+        Keep track of statuses, links and important details. This home page reads live stats from each app.
+      </p>
+
+      <div class="modal-actions">
+        <button id="about-close" class="icon-btn" title="Close about">
+          <img src="https://img.icons8.com/?size=45&id=114052&format=png&color=000000" alt="Close">
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="home.js"></script>
+  <script src="universities-sync.js"></script> 
+</body>
+</html>        color: #fff;
         text-align: center;
         padding: 30px 20px 25px 20px;
         position: relative;
