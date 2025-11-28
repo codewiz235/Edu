@@ -1,0 +1,209 @@
+* { margin:0; padding:0; box-sizing:border-box; }
+/* Font Family kept as 'Franklin Gothic Demi' as per your index.html */
+body { font-family: 'Franklin Gothic Demi', sans-serif; background:#0a0a0f; color:#ccc; min-height:100vh; }
+
+header {
+    padding:20px;
+    display:flex; align-items:center; justify-content:space-between;
+    background:#111118; border-bottom:2px solid #FFFFFF;
+    /* START: Sticky Header - IMPLEMENTED */
+    position: sticky;
+    top: 0;
+    z-index: 99;
+    /* END: Sticky Header - IMPLEMENTED */
+}
+/* Styling the home link and add button icons */
+#home-btn, #add-btn { 
+    background:none; 
+    border:none; 
+    font-size:36px; 
+    cursor:pointer; 
+    color:#00d4ff; 
+    display: flex; 
+    align-items: center; 
+    padding: 0;
+}
+/* Added style for the new <a> wrapper */
+#home-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex; /* Ensures button inside <a> centers correctly */
+}
+
+h1 { 
+    font-size:35px; 
+    font-weight:800; 
+    color:#FFFFFF; /* White Header Title */
+}
+
+
+.filters { padding:20px 20px 10px; display:flex; gap:12px; overflow-x:auto; scrollbar-width:none; }
+.filter-btn {
+    padding:10px 24px; 
+    /* ADDED 1px SOLID WHITE BORDER */
+    border: 1px solid #FFFFFF; 
+    border-radius:30px; 
+    background:#1e1e2e; 
+    color:#888;
+    font-weight:600; 
+    transition:0.3s; 
+    box-shadow:0 4px 10px rgba(0,0,0,0.3);
+}
+/* Fixed broken syntax and used the blue theme for active state */
+.filter-btn.active { 
+    background:#00d4ff; 
+    color:black; 
+    box-shadow:0 0 10px rgba(0,212,255,0.7); /* Subtle blue glow */
+    /* INCREASED BORDER WIDTH FOR ACTIVE STATE VISIBILITY */
+    border: 2px solid #FFFFFF;
+}
+
+#empty-state { text-align:center; padding:100px 20px; font-size:18px; color:#555; }
+
+.application-card {
+    margin:16px; border-radius:28px; overflow:hidden; background:#161625;
+    box-shadow:0 10px 30px rgba(0,0,0,0.5); border:2px solid #FFFFFF;
+}
+.card-header {
+    padding:24px; background:linear-gradient(135deg, #1e40af, #3b82f6); color:white;
+    display:flex; align-items:center; gap:20px;
+}
+.uni-logo { width:80px; height:80px; border-radius:50%; background:white; padding:8px; object-fit:contain; }
+.uni-info h3 { font-size:22px; font-weight:700; }
+.degree { font-size:16px; opacity:0.9; margin:6px 0; }
+.status {
+    margin-top:10px; padding:8px 18px; border-radius:25px; font-weight:700; font-size:13px; border: 1px solid #FFFFFF;
+}
+.status.admitted { background:#74C365; }
+.status.pending { background:#f97316; }
+.status.conditional { background:#3b82f6; }
+.status.rejected { background:#ef4444; }
+
+.card-actions {
+    padding:18px 20px;
+    display:flex; justify-content:space-around;
+    background:#0f0f1a;
+    gap:12px;
+}
+.icon-btn {
+    width:50px; height:50px;
+    border-radius:16px;
+    border:none;
+    cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    transition:0.3s;
+}
+.icon-btn:hover { transform:scale(1.1); }
+
+.icon-details { background:#FFFFFF; }
+.icon-portal { background:#FFFFFF; }
+.icon-edit { background:#FFFFFF; }
+.icon-delete { background:#FFFFFF; }
+
+.details-content {
+    padding:0 24px; max-height:0; overflow:hidden; transition:0.4s ease;
+    background:#111118; color:#aaa; line-height:1.7;
+}
+.details-content.open { max-height:600px; padding:24px; border-top:1px solid #333; }
+
+/* Modal Styles - Dark Theme */
+.modal { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.95); justify-content:center; align-items:center; z-index:1000; }
+.modal-content { background:#000000; width:90%; max-width:420px; border-radius:24px; padding:30px; border:2px solid #00d4ff; }
+.modal-content h2 { color:#FFFFFF; text-align:center; margin-bottom:20px; font-size:24px; }
+input, select, textarea { width:100%; padding:16px; margin:8px 0; background:#0f0f1a; border:2px solid #FFFFFF; border-radius:12px; color:white; }
+
+/* Styling for a file label/placeholder (if you re-implement image upload) */
+.file-label {
+    display: block;
+    width: 100%;
+    padding: 16px; 
+    margin: 8px 0;
+    background: #0f0f1a;
+    border: 2px solid #FFFFFF;
+    border-radius: 12px;
+    color: white;
+    cursor: pointer;
+    text-align: left;
+    font-size: 16px;
+}
+
+.modal-actions { display:flex; gap:12px; margin-top:20px; }
+#cancel-btn, #save-btn { 
+    padding:14px; border:none; border-radius:12px; font-weight:600; cursor:pointer; 
+    display: flex; justify-content: center; align-items: center; 
+}
+#cancel-btn { background:#FFFFFF; flex:1; }
+#save-btn { background:#00d4ff; flex:2; } 
+#save-btn img { color:#000000 ; } /* Makes the icon black on the blue button */
+
+
+/* START: UPDATED FOOTER STYLES */
+footer {
+    background: #111118; 
+    color: #ccc;
+    padding: 30px 20px;
+    margin-top: 30px; 
+    /* Changed from #00d4ff to #FFFFFF */
+    border-top: 2px solid #FFFFFF; 
+    text-align: center;
+}
+
+.footer-contact {
+    /* Center the phone and email stacked */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.footer-contact p {
+    margin: 8px 0; 
+    display: flex; 
+    align-items: center; /* Align icon and text vertically */
+}
+
+.contact-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    /* Make the icon white for contrast */
+    filter: brightness(0) invert(1); 
+}
+
+.footer-contact a {
+    color: #00d4ff; 
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.social-icons {
+    margin-bottom: 15px;
+}
+
+.social-icons a {
+    margin: 0 10px;
+    display: inline-block;
+}
+
+/* Rounded Social Icons with blue background */
+.social-icons img {
+    width: 40px; 
+    height: 40px;
+    border-radius: 50%; /* Makes them circular */
+    padding: 5px;
+    background: #FFFFFF; /* white background */
+    transition: transform 0.2s;
+    /* Make the social icons white on the blue circle */
+}
+
+.social-icons img:hover {
+    transform: scale(1.1);
+}
+
+.copyright {
+    font-size: 16px;
+    /* Changed from #555 to #FFFFFF */
+    color: #FFFFFF; 
+}
+/* END: UPDATED FOOTER STYLES */
+

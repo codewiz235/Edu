@@ -1,0 +1,211 @@
+:root {
+  --bg: #fdfdfd;
+  --bg-gradient: linear-gradient(135deg, #f5f9ff, #ffffff);
+  --card-bg: rgba(255,255,255,0.65);
+  --card-border: #000000;
+  --text: #111111;
+  --accent: #1e90ff;
+  --accent-hover: #186fc1;
+  --muted: #666666;
+  --radius: 8px;
+}
+
+body {
+  background: var(--bg-gradient);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+}
+
+h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+
+.home-main { padding: 40px 20px; max-width: 1200px; margin: 0 auto; }
+
+/* Topbar */
+.topbar {
+  position: sticky; top: 0; z-index: 100;
+  background: #000; color: #fff;
+  padding: 12px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+.app-title { margin: 0; font-size: 1.8rem; }
+#home-link img { height: 48px; }
+
+/* Grid */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+/* Card - no longer clickable itself */
+.app-card {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid var(--card-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--card-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.app-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.25); }
+
+/* Header */
+.card-top {
+  /* Keep display flex for side-by-side logo and text */
+  display: flex;
+  /* Remove 'align-items: center;' if you want the top of the text block 
+     to start higher, but keep it if you want the logo aligned with the middle of the text. */
+  align-items: flex-start; /* Aligns content to the top */
+  gap: 24px; /* Slightly more space, if desired */
+  padding-left: 0px; /* Moves content closer to the left edge of the card */
+  padding-right: 0px; /* Keeps standard padding on the right */
+  padding-top: 0px;
+  padding-bottom: 20px;
+}
+
+.card-logo {
+  /* Increase size from 68px */
+  width: 80px;
+  height: 80px;
+  /* Keep original padding/background styles */
+  border-radius: 12px;
+  padding-left: 0px;
+  padding: 8px;
+  object-fit: contain;
+  background: rgba(255,255,255,0.2);
+  flex: 0 0 80px; /* Must match width/height for fixed sizing */
+}
+
+.card-title h3 {
+  /* Increase font size from 1.5rem */
+  font-size: 1.8rem; 
+  margin: 0 0 6px; /* Adjust spacing */
+}
+
+.card-desc {
+  /* Increase font size from 0.9rem */
+  font-size: 1.05rem; 
+  margin: 0;
+}
+
+/* Body */
+.card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+}
+
+/* Status rows - perfect vertical alignment */
+.status-row {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.status-item {
+  display: grid;
+  grid-template-columns: 90px 1fr 40px;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+.status-label {
+  font-weight: 600;
+  font-size: 0.94rem;
+  color: var(--text);
+}
+.count {
+  font-weight: 800;
+  font-size: 1.1rem;
+  text-align: right;
+  color: var(--text);
+}
+
+/* Battery */
+.battery {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+.battery .segment {
+  width: 11px;
+  height: 18px;
+  border-radius: 4px;
+  background: #e0e0e0;
+  border: 1px solid #ccc;
+  transition: all 160ms ease;
+}
+.battery .segment.filled {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Status-specific colors */
+.battery.status-admitted .segment.filled    { background: #74C365; border: 1px solid #000000; }
+.battery.status-pending .segment.filled     { background: #FFAD00; border: 1px solid #000000; }
+.battery.status-conditional .segment.filled { background: #3b82f6; border: 1px solid #000000; }
+.battery.status-rejected .segment.filled    { background: #ef4444; border: 1px solid #000000; }
+
+/* Open button - larger, icon only */
+.card-actions {
+  margin-top: auto;
+  padding-top: 12px;
+  text-align: right;
+}
+.card-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 24px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(30,144,255,0.3);
+}
+.card-link:hover {
+  background: var(--accent-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(30,144,255,0.4);
+}
+.card-link::after {
+  content: "→";
+}
+
+/* Footer */
+footer {
+  background: #000;
+  color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+  margin-top: 80px;
+}
+footer a { color: #fff; }
+.social-icons a img { width: 50px; height: 50px; transition: transform .3s; }
+.social-icons a:hover img { transform: scale(1.2); }
+
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600;700;800&display=swap');
+
+/* Mobile adjustments */
+@media (max-width: 560px) {
+  .status-item { grid-template-columns: 80px 1fr 36px; gap: 10px; }
+  .card-link { width: 50px; height: 50px; }
+}
+
+/* Add to home.css to target the image inside the About button */
+.top-actions .about-icon img {
+  /* Reduce image size from the current 90px source */
+  width: 40px; 
+  height: 40px;
+}
