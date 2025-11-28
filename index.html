@@ -3,171 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Renegade7 University Selector</title>
-    <style>
-        /* Reset default styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background-color: #f5f7fa; /* Light gray background */
-            font-family: 'Poppins', sans-serif; /* Modern sans-serif font */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 600px; /* Constrain width for readability */
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px; /* Space between elements */
-        }
-
-        /* Header logo */
-        .header-logo {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        /* Header titles */
-        .header-title {
-            font-size: 24px;
-            font-weight: 700;
-            color: #003087; /* Dark blue */
-            text-align: center;
-        }
-
-        .header-subtitle {
-            font-size: 14px;
-            font-weight: 500;
-            color: #003087;
-            text-align: center;
-        }
-
-        /* University buttons */
-        .uni-button {
-            width: 100%;
-            max-width: 500px; /* Button width */
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 15px;
-            background-color: #ffffff; /* White background */
-            border-radius: 20px; /* Rounded edges */
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-            text-decoration: none;
-            transition: transform 0.2s, box-shadow 0.2s; /* Smooth hover effects */
-        }
-
-        .uni-button:hover {
-            transform: translateY(-2px); /* Slight lift on hover */
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Deeper shadow */
-        }
-
-        .uni-logo {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            object-fit: contain;
-        }
-
-        .uni-name {
-            flex-grow: 1;
-            margin-left: 15px;
-            font-size: 16px;
-            font-weight: 500;
-            color: #003087; /* Dark blue */
-        }
-
-        .uni-dots {
-            font-size: 24px;
-            color: #003087;
-        }
-
-        /* Responsive design */
-        @media (max-width: 480px) {
-            .container {
-                padding: 10px;
-            }
-
-            .header-logo {
-                width: 80px;
-                height: 80px;
-            }
-
-            .header-title {
-                font-size: 20px;
-            }
-
-            .header-subtitle {
-                font-size: 12px;
-            }
-
-            .uni-button {
-                padding: 12px;
-            }
-
-            .uni-logo {
-                width: 35px;
-                height: 35px;
-            }
-
-            .uni-name {
-                font-size: 14px;
-            }
-        }
-    </style>
+    <title>My Applications</title>
+    <link href="https://fonts.googleapis.com/css2?family=Franklin Gothic Demi:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <!-- Header logo (replace src with your logo URL) -->
-        <img src="https://i.imgur.com/hvZkbIc.jpeg" alt="Eduzentra Logo" class="header-logo">
-        
-        <!-- Header titles -->
-        <h1 class="header-title">Select a University to apply</h1>
-        <p class="header-subtitle">Made by Eduzentra–A sub brand of Netlify</p>
-        
-        <!-- University buttons (customize href and logo src) -->
-        <a href="https://publicaccess.uct.ac.za/psc/public/EMPLOYEE/SA/c/UCT_PUBLIC_MENU.UCT_ONL_HOME_FL.GBL?PAGE=UCT_ONL_ACC_FL" class="uni-button">
-            <img src="https://i.imgur.com/0XiYZ5B.png" alt="UCT Logo" class="uni-logo">
-            <span class="uni-name">University of Cape Town</span>
-            <span class="uni-dots">⋮</span>
+    <header>
+        <a href="home.html" id="home-link"> 
+            <button id="home-btn"><img src="https://img.icons8.com/?size=60&id=86527&format=png&color=00d4ff"></button>
         </a>
-        <a href="https://student.sun.ac.za/signup/" class="uni-button">
-            <img src="https://i.imgur.com/v4DbjBX.jpeg" alt="Stellenbosch Logo" class="uni-logo">
-            <span class="uni-name">Stellenbosch University</span>
-            <span class="uni-dots">⋮</span>
-        </a>
-        <a href="https://upnet.up.ac.za/psc/upapply/EMPLOYEE/SA/c/UP_OAP_MENU.UP_OAP_LOGIN_FL.GBL?&" class="uni-button">
-            <img src="https://i.imgur.com/kGU6NHm.png" alt="Pretoria Logo" class="uni-logo">
-            <span class="uni-name">University of Pretoria</span>
-            <span class="uni-dots">⋮</span>
-        </a>
-        <a href="https://www.uj.ac.za/admissions-aid/" class="uni-button">
-            <img src="https://i.imgur.com/ntSq5Ol.png" alt="Johannesburg Logo" class="uni-logo">
-            <span class="uni-name">University of Johannesburg</span>
-            <span class="uni-dots">⋮</span>
-        </a>
-        <a href="https://apply.ufs.ac.za/Application/Undergraduate" class="uni-button">
-            <img src="https://i.imgur.com/2KPNQ9b.png" alt="Free State Logo" class="uni-logo">
-            <span class="uni-name">University of the Free State</span>
-            <span class="uni-dots">⋮</span>
-        </a>
-        <a href="https://www.uwc.ac.za/admission-and-financial-aid/apply" class="uni-button">
-            <img src="https://i.imgur.com/k7ogvY8.png" alt="Western Cape Logo" class="uni-logo">
-            <span class="uni-name">University of the Western Cape</span>
-            <span class="uni-dots">⋮</span>
-        </a>
+        <h1>Universities</h1>
+        <button id="add-btn"><img src="https://img.icons8.com/?size=50&id=85298&format=png&color=00d4ff"></button>
+    </header>
+
+    <div class="filters">
+        <button class="filter-btn active" data-status="all">All</button>
+        <button class="filter-btn" data-status="admitted">Admitted</button>
+        <button class="filter-btn" data-status="pending">Pending</button>
+        <button class="filter-btn" data-status="conditional">Conditional</button>
+        <button class="filter-btn" data-status="rejected">Rejected</button>
     </div>
+
+    <main id="applications-list">
+        <div id="empty-state">No applications yet.<br>Tap + to add one.</div>
+    </main>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <h2 id="modal-title">Add University</h2>
+            <form id="uni-form">
+                <input type="text" id="name" placeholder="University Name" required>
+                
+                <label for="logo-upload" class="file-label">
+                    <span id="logo-status">Select University Logo (optional)</span>
+                </label>
+                <input type="file" id="logo-upload" accept="image/*" style="display:none;">
+                <input type="hidden" id="logo" value=""> <input type="text" id="qualification" placeholder="Degree" required>
+                <select id="status" required>
+                    <option value="pending">Pending</option>
+                    <option value="admitted">Admitted</option>
+                    <option value="conditional">Conditional</option>
+                    <option value="rejected">Rejected</option>
+                </select>
+                <input type="url" id="portalUrl" placeholder="Portal URL" required>
+                <textarea id="details" placeholder="Details (optional)" rows="4"></textarea>
+                <div class="modal-actions">
+                    <button type="button" id="cancel-btn"><img src="https://img.icons8.com/?size=45&id=114052&format=png&color=000000"></button>
+                    <button type="submit" id="save-btn"><img src="https://img.icons8.com/?size=45&id=18765&format=png&color=000000"></button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-contact">
+            <p>
+                <img src="https://img.icons8.com/?size=50&id=82763&format=png&color=000000" alt="Email Icon" class="contact-icon">
+                <a href="mailto:contact@myapp.com">contact@myapp.com</a>
+            </p>
+            <p>
+                <img src="https://img.icons8.com/?size=50&id=9518&format=png&color=000000" alt="Phone Icon" class="contact-icon">
+                <a href="tel:+1234567890">+1 234 567 890</a>
+            </p>
+        </div>
+
+        <div class="social-icons">
+            <a href="https://www.instagram.com/" target="_blank">
+                <img src="https://img.icons8.com/?size=100&id=62855&format=png&color=008000" alt="WhatsApp">
+            </a>
+            <a href="https://twitter.com/" target="_blank">
+                <img src="https://img.icons8.com/?size=100&id=37326&format=png&color=FF0000" alt="YouTube">
+            </a>
+            <a href="https://www.linkedin.com/" target="_blank">
+                <img src="https://img.icons8.com/?size=100&id=118467&format=png&color=0000FF" alt="Facebook">
+            </a>
+        </div>
+
+        <p class="copyright">&copy; 2025 My Applications Tracker. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="universities-sync.js"></script> 
 </body>
 </html>
